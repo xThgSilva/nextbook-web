@@ -1,0 +1,80 @@
+.container {
+    height: 100vh;
+    display: flex;
+}
+
+.aside-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: #4D37DF;
+    width: 20%;
+    padding: 8px;
+    padding-bottom: 48px;
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    color: #F7F2EC;
+}
+
+.user-account, .pages{
+    padding: 16px;
+    background-color: rgba(255,255,255,.08); 
+    color: #F7F2EC;
+    border-radius: 8px;
+}
+
+.user-account-title {
+    opacity: .7;
+    padding-bottom: 12px;
+}
+
+.pages {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.pages p {
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: .7;
+}
+
+.pages button, .logout  {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1rem;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: none;
+    color: #F7F2EC;
+    background-color: #4D37DF;
+    transition: .5s;
+}
+
+.pages button:hover {
+    background-color: #7450EF;
+}
+
+.logout {
+    position: absolute;
+    bottom: 10px;
+    padding: 8px 12px;
+    border-radius: 12px;
+    border: none;
+    background-color: rgba(255,255,255,.08);
+    color: #F7F2EC;
+    transition: .5s;
+}
+
+.logout:hover {
+    background-color: #4D37DF;
+}
