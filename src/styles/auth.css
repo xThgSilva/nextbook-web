@@ -55,7 +55,7 @@
     border-radius: 8px;
     width: 40%;
     max-width: 450px;
-    gap: 32px;
+    gap: 16px;
 }
 
 .form-header {
@@ -114,10 +114,6 @@
 .age-phone-group {
     display: flex;
     gap: 12px;
-}
-
-.age-phone-group .input-group {
-    flex: 1;
 }
 
 .auth-form input:focus {
