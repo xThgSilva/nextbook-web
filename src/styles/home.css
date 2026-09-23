@@ -1,0 +1,36 @@
+.home-page-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.hero-section {
+    display: flex;
+    align-items: center;
+    height: 80%;
+    padding: 64px;
+    background-color: var(--color-bg-soft);
+}
+
+.hero-section div {
+    flex: 1;
+    height: 100%;
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    color: var(--color-purple-dark);
+}
+
+.hero-text p {
+    color: var(--color-gray-dark);
+    font-size: 1.25rem;
+    font-weight: 400;
+}
