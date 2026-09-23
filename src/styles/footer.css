@@ -1,9 +1,12 @@
 footer {
+    background-color: var(--color-black);
+}
+
+footer section {
     display: flex;
     justify-content: center;
     padding: 64px 128px;
     gap: 96px;
-    background-color: var(--color-black);
 }
 
 .footer-logo {
