@@ -1,0 +1,28 @@
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 64px 128px;
+    gap: 96px;
+    background-color: var(--color-black);
+}
+
+.footer-logo {
+    color: var(--color-white);
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+}
+
+.footer-link {
+    text-decoration: none;
+    color: var(--color-white);
+    transition: .3s;
+}
+
+.footer-link:hover {
+    color: var(--color-purple-medium);
+}
