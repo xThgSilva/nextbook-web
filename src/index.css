@@ -18,8 +18,12 @@
   /* Borders */
   --color-bg-soft: #F7F2EC;
   /* Light background */
-  --color-shadow-soft: rgba(0, 0, 0, .3)
+  --color-shadow-soft: rgba(0, 0, 0, .5);
   /* Light shadow */
+
+  /* Auxiliary Colors */
+  --color-green: #6B9D6B;
+  --color-red: #F85D5D;
 }
 
 * {

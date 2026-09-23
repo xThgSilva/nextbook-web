@@ -1,13 +1,12 @@
 .home-page-container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
 }
 
 .hero-section {
     display: flex;
     align-items: center;
-    height: 80%;
+    height: 80vh;
     padding: 64px;
     background-color: var(--color-bg-soft);
 }
@@ -33,4 +32,23 @@
     color: var(--color-gray-dark);
     font-size: 1.25rem;
     font-weight: 400;
+}
+
+.featured-products {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 32px 48px;
+    background-color: var(--color-purple-light);
+}
+
+.featured-products h1 {
+    font-size: 2rem;
+    color: var(--color-black);
+}
+
+.products {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
 }
