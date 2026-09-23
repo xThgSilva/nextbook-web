@@ -1,5 +1,6 @@
-import "../styles/auth.css"
-import { FaBookReader } from 'react-icons/fa'
+import { useNavigate } from "react-router-dom";
+import "../styles/auth.css";
+import { FaBookReader } from 'react-icons/fa';
 
 type AuthProps = {
   formTitle: string;
@@ -7,13 +8,15 @@ type AuthProps = {
   children: React.ReactNode;
   submitButtonText: string;
   childrenLinks: React.ReactNode;
-}
+};
 
 const Auth = ({ formTitle, auxiliaryText, children, submitButtonText, childrenLinks }: AuthProps) => {
+  const navigate = useNavigate();
+
   return (
     <div className="auth-page-container">
-      <section className="logo-section">
-        <div className="logo-content">
+      <section className="auth-logo-section">
+        <div className="logo-content" onClick={() => navigate("/")}>
           <FaBookReader className="logo-icon" />
           <h1>NextBook</h1>
         </div>
@@ -26,7 +29,7 @@ const Auth = ({ formTitle, auxiliaryText, children, submitButtonText, childrenLi
         </div>
         <form className="auth-form">
           {children}
-          <button type="submit">{submitButtonText}</button>
+          <button type="submit" onClick={() => navigate("/")}>{submitButtonText}</button>
         </form>
         <div className="form-footer">
           {childrenLinks}

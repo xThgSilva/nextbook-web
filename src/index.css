@@ -1,14 +1,25 @@
 :root {
   /* Primary Colors - Purple */
-  --color-purple-dark: #5B3FB0;      /* buttons, important */
-  --color-purple-medium: #7B5FD8;    /* Hover, states */
-  --color-purple-light: #c7a6fd;     /* Light backgrounds */
+  --color-purple-dark: #5B3FB0;
+  /* buttons, important */
+  --color-purple-medium: #7B5FD8;
+  /* Hover, states */
+  --color-purple-light: #c7a6fd;
+  /* Light backgrounds */
 
   /* Neutral Colors */
-  --color-black: #0F0F0F;            /* Main text */
-  --color-gray-dark: #4A4A4A;        /* Secondary text */
-  --color-gray-light: #D4D4D4;       /* Borders */
-  --color-bg-soft: #F7F2EC;          /* Light background */
+  --color-black: #0F0F0F;
+  /* Main text */
+  --color-white: #E5E5E5;
+  /* Off White (some fonts) */
+  --color-gray-dark: #4A4A4A;
+  /* Secondary text */
+  --color-gray-light: #D4D4D4;
+  /* Borders */
+  --color-bg-soft: #F7F2EC;
+  /* Light background */
+  --color-shadow-soft: rgba(0, 0, 0, .3)
+  /* Light shadow */
 }
 
 * {
@@ -16,4 +27,11 @@
   margin: 0;
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.logo-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
 }
