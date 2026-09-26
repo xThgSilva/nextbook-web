@@ -33,6 +33,16 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+html, body {
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .logo-content {
   display: flex;
   align-items: center;

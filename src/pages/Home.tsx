@@ -1,6 +1,3 @@
-import { Link } from "react-router-dom";
-import { FaBookReader } from "react-icons/fa";
-
 import "../styles/home.css";
 import "../styles/footer.css"
 
