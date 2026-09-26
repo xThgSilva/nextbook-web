@@ -1,38 +1,80 @@
 import "../styles/catalog.css";
 
 import Header from '../components/Header';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
 
 const Availabilities = {
-  LOAN: "Loan",
-  SALE: "Sale",
-  LOAN_SALE: "Loan and Sale"
+  LOAN: "LOAN",
+  SALE: "SALE",
+  LOAN_SALE: "LOAN_SALE"
 } as const;
 
 const Categories = {
-  SUSPENSE: "Suspense",
-  ROMANCE: "Romance",
-  HORROR: "Horror",
-  FICTION: "Fiction",
-  BIOGRAPHY: "Biography"
+  SUSPENSE: "SUSPENSE",
+  ROMANCE: "ROMANCE",
+  HORROR: "HORROR",
+  FICTION: "FICTION",
+  BIOGRAPHY: "BIOGRAPHY'"
 } as const;
 
 type Availabilities = typeof Availabilities[keyof typeof Availabilities];
 type Categories = typeof Categories[keyof typeof Categories];
 
+type ProductsType = {
+  readonly id: number;
+  imageUrl: string;
+  name: string;
+  price: number;
+  quantity: number;
+  author?: string;
+  availability?: "LOAN" | "SALE" | "LOAN_SALE";
+  bookId?: number;
+  category?: "FICTION" | "ROMANCE" | "HORROR" | "SUSPENSE" | "BIOGRAPHY";
+}
+
 const Catalog = () => {
   const [isABook, setIsABook] = useState<boolean>(false);
   const [availability, setAvailability] = useState<Availabilities>();
   const [categoriesSelected, setCategoriesSelected] = useState<string[]>([]);
-
+  const [searchName, setSearchName] = useState<string>("");
+  const [products, setProducts] = useState<ProductsType[]>([]);
 
   const handleSelectCategory = (category: string) => {
     setCategoriesSelected(prevCategories =>
       prevCategories.includes(category)
         ? prevCategories.filter((c) => c !== category)
         : [...prevCategories, category]
-      )};
+    )
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(async () => {
+      try {
+        const url = new URL("http://localhost:8080/products");
+        url.searchParams.append("page", "0");
+        url.searchParams.append("size", "30");
+        url.searchParams.append("searchName", searchName);
+        url.searchParams.append("isBook", isABook.toString());
+
+        if (categoriesSelected.length > 0) {
+          url.searchParams.append("categories", categoriesSelected.join(","));
+        }
+        if (availability) {
+          url.searchParams.append("availability", availability);
+        }
+
+        const response = await fetch(url);
+        const data = await response.json();
+
+        setProducts(data.content || []);
+      } catch (error) {
+        console.error("Erro ao buscar produtos:", error);
+      }
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [searchName, categoriesSelected, availability, isABook]);
 
   return (
     <>
@@ -138,38 +180,20 @@ const Catalog = () => {
         <section className='products-container'>
           <h1>Products Catalog</h1>
           <div className="search-container">
-            <input type="text" placeholder="Search a product..."/>
+            <input type="text" onChange={(e) => setSearchName(e.target.value)} value={searchName} placeholder="Search a product..." />
           </div>
           <section className="products-list">
-            {/* Test */}
-           <ProductCard
-            name="First Book"
-            quantity={2}
-            price={1000}
-            imageUrl={"A image"}
-            availability={"LOAN_SALE"}
-            category={"SUSPENSE"} />
-          <ProductCard
-            name="First Product"
-            quantity={5}
-            price={2}
-            imageUrl={""} />
-          <ProductCard
-            name="Second Product"
-            quantity={5}
-            price={2}
-            imageUrl={""} /><ProductCard
-            name="First Book"
-            quantity={2}
-            price={1000}
-            imageUrl={"A image"}
-            availability={"LOAN_SALE"}
-            category={"SUSPENSE"} />
-          <ProductCard
-            name="First Product"
-            quantity={5}
-            price={2}
-            imageUrl={""} />
+            {products.map(product => (
+              <ProductCard
+                key={product.id}
+                name={product.name}
+                quantity={product.quantity}
+                imageUrl={product.imageUrl}
+                price={product.price}
+                availability={product.availability}
+                category={product.category}
+              />
+            ))}
           </section>
         </section>
       </section>
