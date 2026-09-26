@@ -4,6 +4,8 @@ import Header from '../components/Header';
 import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
 
+const apiUrl = import.meta.env.VITE_API_URL;
+
 const Availabilities = {
   LOAN: "LOAN",
   SALE: "SALE",
@@ -51,7 +53,7 @@ const Catalog = () => {
   useEffect(() => {
     const timer = setTimeout(async () => {
       try {
-        const url = new URL("http://localhost:8080/products");
+        const url = new URL(`${apiUrl}/products`);
         url.searchParams.append("page", "0");
         url.searchParams.append("size", "30");
         url.searchParams.append("searchName", searchName);
@@ -69,7 +71,7 @@ const Catalog = () => {
 
         setProducts(data.content || []);
       } catch (error) {
-        console.error("Erro ao buscar produtos:", error);
+        console.error("Error to get products", error);
       }
     }, 500);
 
