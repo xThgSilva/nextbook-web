@@ -1,6 +1,8 @@
 .catalog-container {
     display: flex;
     flex: 1;
+    height: 100%;
+    overflow-y: hidden;
 }
 
 .aside-menu {
@@ -11,11 +13,6 @@
     padding: 12px;
     background-color: var(--color-bg-soft);
     border-right: 2px solid var(--color-purple-light);
-}
-
-.products-container {
-    flex: 3;
-    background-color: var(--color-bg-soft);
 }
 
 .filter-type {
@@ -34,4 +31,40 @@
 .checkinput-group input[type="checkbox"] {
     cursor: pointer;
     accent-color: var(--color-purple-dark);
+}
+
+.products-container {
+    display: flex;
+    flex-direction: column;
+    flex: 4;
+    background-color: var(--color-bg-soft);
+    padding: 24px;
+    height: 100%;
+    gap: 16px;
+    overflow-y: auto;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    padding: 12px;
+}
+
+.search-container input {
+    width: 70%;
+    padding: 12px 24px;
+    border: 2px solid var(--color-gray-light);
+    border-radius: 16px;
+    transition: .3s;
+}
+
+.search-container input:focus {
+    outline: none;
+    border-color: var(--color-purple-dark);
+}
+
+.products-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px 16px;
 }

@@ -2,6 +2,7 @@ import "../styles/catalog.css";
 
 import Header from '../components/Header';
 import { useState } from "react";
+import ProductCard from "../components/ProductCard";
 
 const Availabilities = {
   LOAN: "Loan",
@@ -135,6 +136,41 @@ const Catalog = () => {
           </>}
         </aside>
         <section className='products-container'>
+          <h1>Products Catalog</h1>
+          <div className="search-container">
+            <input type="text" placeholder="Search a product..."/>
+          </div>
+          <section className="products-list">
+            {/* Test */}
+           <ProductCard
+            name="First Book"
+            quantity={2}
+            price={1000}
+            imageUrl={"A image"}
+            availability={"LOAN_SALE"}
+            category={"SUSPENSE"} />
+          <ProductCard
+            name="First Product"
+            quantity={5}
+            price={2}
+            imageUrl={""} />
+          <ProductCard
+            name="Second Product"
+            quantity={5}
+            price={2}
+            imageUrl={""} /><ProductCard
+            name="First Book"
+            quantity={2}
+            price={1000}
+            imageUrl={"A image"}
+            availability={"LOAN_SALE"}
+            category={"SUSPENSE"} />
+          <ProductCard
+            name="First Product"
+            quantity={5}
+            price={2}
+            imageUrl={""} />
+          </section>
         </section>
       </section>
     </>
